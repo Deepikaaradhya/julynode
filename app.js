@@ -100,18 +100,12 @@ app.get('/quicksearch',(req,res) =>{
 })
 
 //restaurant Details
-app.get('/details/:id',(req,res) =>{
+app.get('/details/:id',(req,res) => {
     var id = req.params.id
-    db.collection('restaurents').find({_id:id}).toArray((err,result) =>{
+    db.collection('restaurants').find({restaurant_id:Number(id)}).toArray((err,result) =>{
         if(err) throw err;
         res.send(result)
     })
-    /*
-    db.collection('restaurents').findOne({_id:id},(err,result) =>{
-        if(err) throw err;
-        res.send(result)
-    })
-})*/
 })
 
 //place orders 
